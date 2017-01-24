@@ -1,0 +1,14 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>HireAthena: {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        {% bootstrap_messages %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
