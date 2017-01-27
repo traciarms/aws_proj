@@ -8,7 +8,7 @@ class TeamAdmin(admin.ModelAdmin):
 
 
 class AUserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'team', 'date_create', 'date_updated')
+    list_display = ('name', 'team', 'date_created', 'date_updated')
 
 
 class PointsAdmin(admin.ModelAdmin):
