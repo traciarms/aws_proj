@@ -9,7 +9,7 @@ class Team(models.Model):
     date_updated = models.DateField(auto_now_add=True)
 
 
-class User(models.Model):
+class AUser(models.Model):
     name = models.CharField(max_length=250)
     team = models.ForeignKey(Team, null=True)
     date_created = models.DateField(auto_created=True)
@@ -17,7 +17,7 @@ class User(models.Model):
 
 
 class Points(models.Model):
-    user = models.ForeignKey(User, null=True)
+    user = models.ForeignKey(AUser, null=True)
     points = models.IntegerField()
     reason = models.CharField(max_length=250)
     date_created = models.DateField(auto_created=True)
