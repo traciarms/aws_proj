@@ -12,6 +12,7 @@ class Team(models.Model):
         return ("Name: {}, date created: {}, date updated: {}"
                 .format(self.name, self.date_created, self.date_updated))
 
+
 class AUser(models.Model):
     name = models.CharField(max_length=250)
     team = models.ForeignKey(Team, null=True)

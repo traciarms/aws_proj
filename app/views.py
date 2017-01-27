@@ -1,16 +1,13 @@
-
+from django.db.models import Sum
 from django.views.generic import ListView
 
-from app.models import Team, Point
+from app.models import Point
 
 
 class TeamPointsList(ListView):
-    model = Team
+    model = Point
     template_name = 'team_list.html'
-    queryset = Team.objects.all().order_by('-auser__point__points')
+    queryset = Point.objects.values('user__team__name').order_by().\
+        annotate(Sum('points'))
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(TeamPointsList, self).get_context_data(**kwargs)
-    #     context['point'] = Point.objects.all()
-    #     return context
 
