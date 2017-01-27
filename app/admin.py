@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from app.models import Team, Points, AUser
+from app.models import Team, Point, AUser
 
 
 class TeamAdmin(admin.ModelAdmin):
