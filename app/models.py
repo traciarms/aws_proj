@@ -32,8 +32,7 @@ class Point(models.Model):
     date_created = models.DateField(auto_created=True)
 
     def __str__(self):
-        return ("User: {}, points: {}, reason: {}, date created: {}, "
-                "date updated: {}"
+        return ("User: {}, points: {}, reason: {}, date created: {}"
                 .format(self.user.name, self.points, self.reason,
-                        self.date_created, self.date_updated))
+                        self.date_created))
 
