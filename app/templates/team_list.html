@@ -11,7 +11,10 @@
                <ul>
 
                     Name: {{ team.name }}
-                   Points: {{ team.point.points }}<br>
+                   {% for each in team__point_set %}
+                       User: {{ each.user }}
+                       Points: {{ each.points }}<br>
+                   {% endfor %}
 
                 </ul>
             {% endfor %}
