@@ -9,10 +9,10 @@
 
             {% for team in point_list %}
                <ul>
-                    Name: {{ team.user__team__name }}
+                    Team Name: {{ team.user__team__name }}
 
-                       Points: {{ team.points__sum }}<br>
-
+                       <li>Points: {{ team.points__sum }}<br>
+                        </li>
                 </ul>
             {% endfor %}
 {% endblock %}
