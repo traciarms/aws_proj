@@ -83,7 +83,8 @@ DATABASES = {
         'NAME': 'mydb',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'traciarms',
-        'PASSWORD': 'test1234'
+        'PASSWORD': 'test1234',
+        'HOST': 'hireathena.cd9wciyqmyie.us-west-2.rds.amazonaws.com'
     }
 }
 
