@@ -17,4 +17,4 @@ class PointsAdmin(admin.ModelAdmin):
 
 admin.site.register(Team, TeamAdmin)
 admin.site.register(AUser, AUserAdmin)
-admin.site.register(Points, PointsAdmin)
+admin.site.register(Point, PointsAdmin)
