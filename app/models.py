@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Team(models.Model):
+    """ The team model, contains name and date information """
     name = models.CharField(max_length=250)
     date_created = models.DateTimeField(auto_created=True)
     date_updated = models.DateTimeField(auto_now_add=True)
@@ -14,6 +15,7 @@ class Team(models.Model):
 
 
 class AUser(models.Model):
+    """ The User model, user name and the team they belong to """
     name = models.CharField(max_length=250)
     team = models.ForeignKey(Team, null=True)
     date_created = models.DateTimeField(auto_created=True)
@@ -26,6 +28,8 @@ class AUser(models.Model):
 
 
 class Point(models.Model):
+    """ Point model, links to the User and contains the reason for the
+    points as well as the date the points were created """
     user = models.ForeignKey(AUser, null=True)
     points = models.IntegerField()
     reason = models.CharField(max_length=250)
