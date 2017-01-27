@@ -5,8 +5,8 @@ from django.db import models
 
 class Team(models.Model):
     name = models.CharField(max_length=250)
-    date_created = models.DateField(auto_created=True)
-    date_updated = models.DateField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_created=True)
+    date_updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return ("Name: {}, date created: {}, date updated: {}"
@@ -16,8 +16,8 @@ class Team(models.Model):
 class AUser(models.Model):
     name = models.CharField(max_length=250)
     team = models.ForeignKey(Team, null=True)
-    date_created = models.DateField(auto_created=True)
-    date_updated = models.DateField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_created=True)
+    date_updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return ("Name: {}, team: {}, date created: {}, date updated: {}"
@@ -29,7 +29,7 @@ class Point(models.Model):
     user = models.ForeignKey(AUser, null=True)
     points = models.IntegerField()
     reason = models.CharField(max_length=250)
-    date_created = models.DateField(auto_created=True)
+    date_created = models.DateTimeField(auto_created=True)
 
     def __str__(self):
         return ("User: {}, points: {}, reason: {}, date created: {}"
