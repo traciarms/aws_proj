@@ -16,7 +16,7 @@ class AUser(models.Model):
     date_updated = models.DateField(auto_now_add=True)
 
 
-class Points(models.Model):
+class Point(models.Model):
     user = models.ForeignKey(AUser, null=True)
     points = models.IntegerField()
     reason = models.CharField(max_length=250)
