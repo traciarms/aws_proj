@@ -24,8 +24,8 @@ class TeamScoreTests(TestCase):
         blue_points = Point.objects.filter(user__team=blue).\
             annotate(Sum('points'))
 
-        self.assertEqual(yellow_points, b_points.points+bb_points.points)
-        self.assertEqual(blue_points, y_points.points+yy_points.points)
+        self.assertEqual(yellow_points.points, b_points.points+bb_points.points)
+        self.assertEqual(blue_points.points, y_points.points+yy_points.points)
 
 
 class TeamPointsListTests(TestCase):
