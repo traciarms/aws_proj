@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from datetime import datetime
 
 from django.db import models
-from django.db.models import datetime
+from datetime import datetime
 
 
 class Team(models.Model):
