@@ -19,13 +19,17 @@ class TeamScoreTests(TestCase):
         y_points = Point.objects.create(user=y_user, points=20, reason='win')
         yy_points = Point.objects.create(user=yy_user, points=5, reason='tie')
 
-        yellow_points = Point.objects.filter(user__team=yellow). \
-            annotate(Sum('points'))
-        blue_points = Point.objects.filter(user__team=blue).\
-            annotate(Sum('points'))
-
-        self.assertEqual(yellow_points.points, b_points.points+bb_points.points)
-        self.assertEqual(blue_points.points, y_points.points+yy_points.points)
+        points = Point.objects.values('user__team__name').annotate(Sum('points'))
+        
+	for point in points:
+		
+		if point['user__team__name'] == 'yellow':
+			yellow_points = point['points__sum']
+		if point['user__team__name'] == 'blue':
+			blue_points = point['points__sum']	
+	
+        self.assertEqual(blue_points, b_points.points+bb_points.points)
+        self.assertEqual(yellow_points, y_points.points+yy_points.points)
 
 
 class TeamPointsListTests(TestCase):
