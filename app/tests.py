@@ -19,9 +19,9 @@ class TeamScoreTests(TestCase):
         y_points = Point.objects.create(user=y_user, points=20, reason='win')
         yy_points = Point.objects.create(user=yy_user, points=5, reason='tie')
 
-        yellow_points = Point.objects.values(user__team__name='yellow'). \
+        yellow_points = Point.objects.filter(user__team=yellow). \
             annotate(Sum('points'))
-        blue_points = Point.objects.values(user__team_name='blue').\
+        blue_points = Point.objects.filter(user__team=blue).\
             annotate(Sum('points'))
 
         self.assertEqual(yellow_points, b_points.points+bb_points.points)
