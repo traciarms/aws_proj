@@ -7,7 +7,7 @@ from app.models import Team, AUser, Point
 
 class TeamScoreTests(TestCase):
 
-    def assertTeamScoreEquals(self):
+    def test_team_score_equals(self):
         blue = Team.objects.create(name='blue')
         yellow = Team.objects.create(name='yellow')
         b_user = AUser.objects.create(name='user_1', team=blue)
